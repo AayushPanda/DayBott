@@ -34,3 +34,11 @@ class Motor {
 
 Motor leftMotor(7, 8, 9);
 Motor rightMotor(12, 13, 14);
+
+void setup(){
+
+}
+
+void loop(){
+    
+}
