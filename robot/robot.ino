@@ -96,10 +96,10 @@ void setup()
 
 void loop()
 {
-    auton();/* 
+    /*auton();*/ 
     GetBTCommand('\n', ControllerInput); // '\n' for Windows and '#' for android
     SimpleMapInput(MotorOutputs, ControllerInput);
-    ExecuteCommand_L298N(MotorOutputs); */
+    ExecuteCommand_L298N(MotorOutputs);
 }
 
 //________________________________________________________________________YOUR CODE GOES ABOVE____________________________________________________________________________________________________________
@@ -378,6 +378,9 @@ void ExecuteCommand_L298N(float *Command)
     }
 
     // Next set speed:
+    Serial.print(Command[2]);
+    Serial.print(" ");
+    Serial.println(Command[3]);
     analogWrite(PWM_L, Command[2]);
     analogWrite(PWM_R, Command[3]);
 }
