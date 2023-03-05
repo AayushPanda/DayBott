@@ -96,9 +96,10 @@ void setup()
 
 void loop()
 {
+    auton();/* 
     GetBTCommand('\n', ControllerInput); // '\n' for Windows and '#' for android
     SimpleMapInput(MotorOutputs, ControllerInput);
-    ExecuteCommand_L298N(MotorOutputs);
+    ExecuteCommand_L298N(MotorOutputs); */
 }
 
 //________________________________________________________________________YOUR CODE GOES ABOVE____________________________________________________________________________________________________________
@@ -155,24 +156,27 @@ void scoopDown(){
 }
 
 void auton(){
-    // Read IR sensor values.
+    // Read IR sensor values.  
     int IR_L_Value = analogRead(IR_L);
     int IR_R_Value = analogRead(IR_R);
+    Serial.print(IR_L_Value);
+    Serial.print(" + ");
+    Serial.println(IR_R_Value);
     
     // Set motor outputs.
-    if(IR_L_Value > 500 && IR_R_Value > 500){
+    if(IR_L_Value < 500 && IR_R_Value < 500){
         MotorOutputs[0] = 1;
         MotorOutputs[1] = 1;
         MotorOutputs[2] = 255;
         MotorOutputs[3] = 255;
     }
-    else if(IR_L_Value > 500){
+    else if(IR_L_Value < 500){
         MotorOutputs[0] = 1;
         MotorOutputs[1] = 0;
         MotorOutputs[2] = 255;
         MotorOutputs[3] = 255;
     }
-    else if(IR_R_Value > 500){
+    else if(IR_R_Value < 500){
         MotorOutputs[0] = 0;
         MotorOutputs[1] = 1;
         MotorOutputs[2] = 255;
@@ -349,22 +353,26 @@ void ExecuteCommand_L298N(float *Command)
 {
     if (Command[0] > 0)
     {
+        Serial.print("left forward ");
         digitalWrite(DIR_L_F, HIGH);
         digitalWrite(DIR_L_B, LOW);
     }
     else
     {
+        Serial.print("left backward ");
         digitalWrite(DIR_L_B, HIGH);
         digitalWrite(DIR_L_F, LOW);
     }
 
     if (Command[1] > 0)
     {
+        Serial.println("right forward ");
         digitalWrite(DIR_R_F, HIGH);
         digitalWrite(DIR_R_B, LOW);
     }
     else
     {
+        Serial.println("right backward ");
         digitalWrite(DIR_R_B, HIGH);
         digitalWrite(DIR_R_F, LOW);
     }
