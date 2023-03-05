@@ -102,6 +102,16 @@ void loop()
     ExecuteCommand_L298N(MotorOutputs);
 }
 
+
+void servoControl(ControllerInput){
+    if(ControllerInput[4] == 1.0){
+        scoopup();
+    }
+    else if(ControllerInput[5] == 1.0){
+        scoopdown();
+    }
+}
+
 //________________________________________________________________________YOUR CODE GOES ABOVE____________________________________________________________________________________________________________
 /*Below you are the pre writen functions given to you that when used together allow you to controll your rover.
 
