@@ -19,11 +19,11 @@ class Motor {
             if (speed > 0){
                 digitalWrite(pin1, 1);
                 digitalWrite(pin2, 0);
-                analogWrite(speedPin, speed);
+                analogWrite(speedPin, abs(speed));
             } else if (speed < 0){
                 digitalWrite(pin1, 0);
                 digitalWrite(pin2, 1);
-                analogWrite(speedPin, speed);
+                analogWrite(speedPin, abs(speed));
             } else {
                 digitalWrite(pin1, 0);
                 digitalWrite(pin2, 0);
