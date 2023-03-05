@@ -43,12 +43,12 @@ since it wont upload with the bluetooth module plugged in (power and ground hoev
 // Here the pin values used for motor controll are established. The current pin values are valid and will work as is if you dont want to change them.
 // In some casses your rover will not move as expected. This might be because the motor outputs are reversed in hardware.
 
-int DIR_L_F = 13; // Left Direction pin that will indicate forewards movement (1 for forewards, 0 for backwards).
-int DIR_L_B = 12; // Left Direction pin that will indicate backwards movement (1 for backwards, 0 for forewards).
+int DIR_L_F = 9; // Left Direction pin that will indicate forewards movement (1 for forewards, 0 for backwards).
+int DIR_L_B = 10; // Left Direction pin that will indicate backwards movement (1 for backwards, 0 for forewards).
 int PWM_L = 11;   // Speed controll pin. *** This pin must be plugged into an output pin on the arduino that is labled PWM ***.
 
-int DIR_R_F = 4; // Right Direction pin that will indicate forewards movement (1 for forewards, 0 for backwards)
-int DIR_R_B = 2; // Left Direction pin that will indicate backwards movement (1 for backwards, 0 for forewards).
+int DIR_R_F = 5; // Right Direction pin that will indicate forewards movement (1 for forewards, 0 for backwards)
+int DIR_R_B = 6; // Left Direction pin that will indicate backwards movement (1 for backwards, 0 for forewards).
 int PWM_R = 3;   // Speed controll pin. *** This pin must be plugged into an output pin on the arduino that is labled PWM ***.
 
 // Here you can also declaire your own variables and functions:
