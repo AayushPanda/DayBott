@@ -75,7 +75,7 @@ float MotorOutputs[4];    // Left Direction, Right Direction, Left Speed, Right 
 // This function only runs once at the begining and can should be where you declare what pins will be used for things like servos and sensors.
 void setup()
 {
-    Serial.begin(38400); // Initializing the Serial Port to Baud rate 9600. You can change this to be faster if you wish.
+    Serial.begin(9600); // Initializing the Serial Port to Baud rate 9600. You can change this to be faster if you wish.
 
     // Setting up pins:
     pinMode(DIR_L_F, OUTPUT);
@@ -96,7 +96,7 @@ void setup()
 
 void loop()
 {
-    /*auton();*/ 
+    //auton();
     GetBTCommand('\n', ControllerInput); // '\n' for Windows and '#' for android
     SimpleMapInput(MotorOutputs, ControllerInput);
     ExecuteCommand_L298N(MotorOutputs);
@@ -381,6 +381,7 @@ void ExecuteCommand_L298N(float *Command)
     Serial.print(Command[2]);
     Serial.print(" ");
     Serial.println(Command[3]);
-    analogWrite(PWM_L, Command[2]);
-    analogWrite(PWM_R, Command[3]);
+    digitalWrite(PWM_L, HIGH);
+    digitalWrite(PWM_R, HIGH);
+    
 }
