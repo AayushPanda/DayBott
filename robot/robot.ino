@@ -75,7 +75,7 @@ float MotorOutputs[4];    // Left Direction, Right Direction, Left Speed, Right 
 // This function only runs once at the begining and can should be where you declare what pins will be used for things like servos and sensors.
 void setup()
 {
-    Serial.begin(9600); // Initializing the Serial Port to Baud rate 9600. You can change this to be faster if you wish.
+    Serial.begin(38400); // Initializing the Serial Port to Baud rate 9600. You can change this to be faster if you wish.
 
     // Setting up pins:
     pinMode(DIR_L_F, OUTPUT);
