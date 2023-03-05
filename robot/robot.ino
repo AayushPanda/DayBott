@@ -201,7 +201,6 @@ void GetBTCommand(char border, float *ans)
             { // Different commands are separated by # or \n characters. If you read in a # or \n it is clear that a command has just ended.
                 if (border == '#')
                 {
-                    UnicaTranslateCommand(ans, Command);
                     return;
                 }
                 else
