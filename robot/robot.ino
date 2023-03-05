@@ -32,9 +32,20 @@ class Motor {
        }
 };
 
+
+
 Motor leftMotor(7, 8, 9);
 Motor rightMotor(12, 13, 14);
 
+void getDriveControl(int controlX, int controlY){
+    // control should be between -1 and 1
+    int leftMotorControl = -controlY * 255;
+    int rightMotorControl = -controlY * 255;
+    leftMotorControl += -controlX * 255;
+    rightMotorControl += controlX* 255;
+    leftMotor.setSpeed(leftMotorControl);
+    rightMotor.setSpeed(leftMotorControl);
+}
 void setup(){
 
 }
